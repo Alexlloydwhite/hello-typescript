@@ -13,10 +13,13 @@ const App = () => {
 
   return <div style={{ textAlign: "center" }}>
     <MyForm onSubmit={(data) => {
-      setRows(currentRows => [...currentRows, {
-        id: nanoid(),
-        ...data
-      }])
+      setRows(currentRows => [
+        {
+          id: nanoid(),
+          ...data
+        },
+        ...currentRows
+      ])
     }} />
     <MyTable rows={rows} />
   </div>
