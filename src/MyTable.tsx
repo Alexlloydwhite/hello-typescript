@@ -22,19 +22,19 @@ export function MyTable({ rows }: Props) {
             <Table>
                 <TableHead>
                     <TableRow>
+                        <TableCell>id</TableCell>
                         <TableCell>First Name</TableCell>
-                        <TableCell align="right">Last Name</TableCell>
-                        <TableCell align="right">Email</TableCell>
+                        <TableCell>Last Name</TableCell>
+                        <TableCell>Email</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {rows.map(row => (
                         <TableRow key={row.id}>
-                            <TableCell component="th" scope="row">
-                                {row.firstName}
-                            </TableCell>
-                            <TableCell align="right">{row.lastName}</TableCell>
-                            <TableCell align="right">{row.email}</TableCell>
+                            <TableCell>{row.id}</TableCell>
+                            <TableCell>{row.firstName}</TableCell>
+                            <TableCell>{row.lastName}</TableCell>
+                            <TableCell>{row.email}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

@@ -1,12 +1,24 @@
+import { useState } from 'react';
 import { MyForm } from './MyForm';
+import { nanoid } from 'nanoid';
 import { MyTable } from './MyTable';
 
 const App = () => {
+  const [rows, setRows] = useState([{
+    id: '45',
+    firstName: 'Bob',
+    lastName: 'bob2',
+    email: 'bob@bob.com',
+  }]);
+
   return <div style={{ textAlign: "center" }}>
-    <MyForm onSubmit={({email, firstName, lastName})=> {
-      console.log(firstName, lastName, email)
-    }}/>
-    <MyTable />
+    <MyForm onSubmit={(data) => {
+      setRows(currentRows => [...currentRows, {
+        id: nanoid(),
+        ...data
+      }])
+    }} />
+    <MyTable rows={rows} />
   </div>
 }
 
